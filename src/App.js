@@ -13,8 +13,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      console.log({ authUser })
-
       if (authUser) {
         dispatch({ type: 'SET_USER', user: authUser })
       } else {
@@ -33,6 +31,10 @@ function App() {
           <Route path='/checkout'>
             <Header />
             <Checkout />
+          </Route>
+          <Route path='/payment'>
+            <Header />
+            <h1>I am the payment route</h1>
           </Route>
           <Route path='/'>
             <Header />
