@@ -2,7 +2,7 @@ const functions = require('firebase-functions')
 const express = require('express')
 const cors = require('cors')
 const stripe = require('stripe')(
-  'pk_test_51IjNquBLGXcdV5UYNE3fCTxEQaKqT4QgbVnOz9nXbrqwmU5eCdxhsAUWhExzywxAyogdFxkAr2PCzw0WHajJebx1009XOzVRuu'
+  'sk_test_51IjNquBLGXcdV5UY2bJuMrHisOC0fePjXKOesc8PgAqcX1gDWv4fuMILRhQ5rspgu4lGFa3tULq0dqNZKfV8AB1s00upXGKCCR'
 )
 
 const app = express()
@@ -14,8 +14,6 @@ app.get('/', (request, response) => response.status(200).send('hello world'))
 
 app.post('/payments/create', async (request, response) => {
   const total = request.query.total
-
-  console.log({ total })
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
